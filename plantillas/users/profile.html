@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}{{ user.username }} | Perfil{% endblock head_title %}
+
+{% block content %}
+<body class="perfil">
+    <section class="profile">
+        <header class="header">
+          <div class="details">
+            {% if user.profile.image %}
+            <img src="{{ profile.image.url }}" alt="{{ user.username }}" class="profile-pic">
+            {% else %}
+            <img src="{% static 'img/avatar.svg' %}" alt="{{ user.username }}" class="profile-pic">
+            {% endif %}
+            
+            <p><a href="{% url 'users:edit_profile' %}">Edita tu perfil</a></p>
+            <h1 class="heading">@{{ user.username }}</h1>
+            <div class="location">
+                <p> <strong>Ultima vez:</strong> {{ user.last_login }}</p>
+            </div>
+            <div class="stats">
+                <p class="card-text"> Sobre mi: {{ user.profile.about_me }}</p>
+            </div>
+          </div>
+        </header>
+      </section>
+</body>
+{% endblock %}
