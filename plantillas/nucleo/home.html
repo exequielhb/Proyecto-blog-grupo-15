@@ -3,15 +3,14 @@
 {% block content %}
 
 <!-- Portada -->
-
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center text-black"
-style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae1853cafb2b848f9c8dcd59cea888f5ccebf8f810e0725770be383a463bc269609f2bd90a4a4ed0be05af2c89be6d9ad7f742964b085b0a594895334f06fc5d3f8e54ea3d3_1920.jpg');">
-  <div class="col-md-5 p-lg-5 mx-auto my-5">
-    <h1 class="display-4 fw-normal">Texto Central</h1>
-    <p class="lead fw-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <a class="btn btn-success text-withe btn-lg" href="#">Registrarse</a>
+<div class="portada position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center text-black">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 fw-normal texto-central">Texto Central</h1>
+      <p class="lead fw-normal desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <a class="btn btn-success text-withe btn-lg" href="#">Registrarse</a>
+    </div>
   </div>
-</div>
+
 
 <!-- termina Portada -->
 
@@ -19,7 +18,7 @@ style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae18
 
 <div class="container mt-5">
 
-  <h1 class="my-4 text-center">Lista de Articulos
+  <h1 class="my-4 text-center lista">Lista de Articulos
     <small></small>
   </h1>
 
@@ -32,13 +31,13 @@ style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae18
       {% endif %}
       <div class="card-body border">
         <a href="{% url 'core:post' post.id post.slug %}" class="text-decoration-none">
-          <h2 class="card-title my-3 text-center">{{ post.title }} </h2>
+          <h2 class="card-title my-3 text-center texto-central">{{ post.title }} </h2>
         </a>
-        <div class="text-muted mb-1">
+        <div class="mb-1 text-center">
           <div>
-            <span>Creado: {{ post.created_on|date:"N j Y" }} |</span>
+            <span class="fw-bold">Creado: </span>{{ post.created_on|date:"N j Y" }} |
             
-            <span>Autor: {{ post.author }}</span>
+            <span class="fw-bold">Autor: </span>{{ post.author }}
           </div>
           <div>
             {% for tag in post.tags.all %}
@@ -47,7 +46,11 @@ style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae18
           </div>
         </div>
         <p class="card-text">{{ post.content|truncatewords:30 }}</p>
-        <a class='btn btn-dark' href="{% url 'core:post' post.id post.slug %}">Leer Articulo ...</a>
+
+        <a href="{% url 'core:post' post.id post.slug %}">
+          <button class="btn btn-dark fw-bold" type="button">Leer Articulo</button>
+        </a>
+
       </div>
     </div>
     {% endfor %}
@@ -55,18 +58,18 @@ style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae18
    
   <!-- Termina seccion Articulos -->
 
-  <!-- Pagination -->
+  <!-- Paginacion -->
   <div class="row">
     <nav class="col-lg-6 offset-lg-3 mt-4 d-flex justify-content-center">
       <ul class="pagination">
 
         {% if page_obj.has_previous %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
         </li>
         {% else %}
         <li class="page-item disabled">
-          <a class="page-link" href="#"">Previous</a>
+          <a class="page-link" href="#"">Anterior</a>
         </li>
         {% endif %}
   
@@ -78,18 +81,48 @@ style="background-image: url('https://pixabay.com/get/g717e8d35950a62140f795ae18
 
         {% if page_obj.has_next %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
         </li>
         {% else %}
         <li class="page-item disabled">
-          <a class="page-link" href="#">Next</a>
+          <a class="page-link" href="#">Siguiente</a>
         </li>
         {% endif %}
 
       </ul>
     </nav>
   </div>
-  <!-- /Pagination -->
+  <!-- /Paginacion -->
+
+  <!-- footer -->
+  <section class="">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #0a4275;">
+      <!-- Grid container -->
+      <div class=" p-4 pb-0">
+        <!-- Section: CTA -->
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Registrate gratis</span>
+            <button type="button" class="btn btn-outline-light btn-rounded">
+              Registrarme!
+            </button>
+          </p>
+        </section>
+        <!-- Section: CTA -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2021 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Mibog.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </section>
+  <!-- termina footer -->
 
 </div>
 {% endblock %}
