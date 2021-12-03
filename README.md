@@ -3,8 +3,8 @@
 - pip install pillow
 
 
-Se agregaron
-Registro
-Login
-Logout
-Perfil de usuario
+. Se agregaron
+- Registro
+- Login
+- Logout
+- Perfil de usuario
