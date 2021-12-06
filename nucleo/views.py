@@ -31,7 +31,8 @@ class HomeView(ListView):
     template_name = 'nucleo/home.html'
     queryset = Post.objects.all()
     paginate_by = 4 #Cantidad de articulos en la home
-   
+
+    
 
 
 # Vistas, detalles de los posts
