@@ -92,14 +92,15 @@ body {
  /* Portada */
 
 .portada {
-  background-image: url(/static/img/planeta.jpg);
+  background: url(/static/img/123.png) no-repeat center;
+  background-size: cover;
 }
 
 .texto-central {
   font-family: 'Roboto Slab', serif;
 }
 .desc {
-  color: white;
+  color: black;
 }
 
 /* Articulos */
@@ -229,3 +230,7 @@ footer {
   margin-bottom:12px;
   max-width:100%;
 }
+
+
+/* aa */
+

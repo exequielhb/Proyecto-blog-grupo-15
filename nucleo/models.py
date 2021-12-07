@@ -2,6 +2,8 @@ from django.db import models
 
 from django.conf import settings
 
+from ckeditor_uploader.fields import RichTextUploadingField
+
 class Tag(models.Model):
   name = models.CharField(max_length=40)
 
@@ -12,7 +14,8 @@ class Post(models.Model):
     title = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.CASCADE)
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextUploadingField()
     image = models.ImageField(upload_to='', blank=True, null=True)
     tags = models.ManyToManyField(Tag, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)

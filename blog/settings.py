@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     # agregamos los directorios de la app y usuarios
     'users',
     'nucleo',
+    'ckeditor',
+    'ckeditor_uploader',
     
 ]
 
@@ -127,3 +129,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 LOGIN_URL = "/users/login/"
+
+CKEDITOR_UPLOAD_PATH="uploads/"

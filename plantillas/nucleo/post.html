@@ -20,8 +20,8 @@
 
               {% if post.author == request.user %}
               <div class="mt-4 mx-3">
-                <a class="btn btn-primary" href="{% url 'nucleo:post_update' post.id %}">Edit</a>
-                <a class="btn btn-danger" href="{% url 'nucleo:post_delete' post.id %}">Delete</a>
+                <a class="btn btn-primary" href="{% url 'nucleo:post_update' post.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'nucleo:post_delete' post.id %}">Eliminar</a>
               </div>
               {% endif %}
               
@@ -31,7 +31,7 @@
           
 
           <div class="text">
-            <p>{{ post.content }}</p>
+            <p>{{post.content|safe}}</p>
           
           </div>
         </div>
