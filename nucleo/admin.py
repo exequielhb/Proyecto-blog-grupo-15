@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Esta clase nos permite filtrar contenido en la admin
 
-from .models import Post, Tag
+from .models import Post, Tag, Comment
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_on', 'updated_on')
@@ -18,3 +18,10 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 admin.site.register(Tag, TagAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display=('name', 'email', 'post', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('name', 'email', 'content')
+
+admin.site.register(Comment, CommentAdmin)

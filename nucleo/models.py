@@ -28,6 +28,10 @@ class Post(models.Model):
         return self.title
 
 
+    def get_comments(self):
+        return self.comments.filter(parent=None).filter(active=True)
+
+
 # comentarios
 
 class Comment(models.Model):
@@ -37,8 +41,15 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
     class Meta:
         ordering = ('-created',)
 
     def __str__(self):
         return 'Comment by {}'.format(self.name)
+
+    def get_comments(self):
+        return Comment.objects.filter(parent=self).filter(active=True)
