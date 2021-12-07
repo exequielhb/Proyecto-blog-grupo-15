@@ -1,10 +1,6 @@
-## despues de activar el entorno instalar pillow
+#### Instalar dependencias antes de correr el proyecto
 
-- pip install pillow
+`pip3 install -r requirements.txt`
 
-
-. Se agregaron
-- Registro
-- Login
-- Logout
-- Perfil de usuario
+- Se corrigieron algun problemas de diseño
+- se agregaron filtros en la administracion y un editor
