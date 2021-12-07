@@ -17,13 +17,6 @@
                 <span class="badge bg-dark">{{ tag }}</span>
                 {% endfor %}
               </div>
-
-              {% if post.author == request.user %}
-              <div class="mt-4 mx-3">
-                <a class="btn btn-primary" href="{% url 'nucleo:post_update' post.id %}">Editar</a>
-                <a class="btn btn-danger" href="{% url 'nucleo:post_delete' post.id %}">Eliminar</a>
-              </div>
-              {% endif %}
               
               {% if post.image %}
               <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}"></div>
@@ -32,6 +25,13 @@
 
           <div class="text">
             <p>{{post.content|safe}}</p>
+
+            {% if post.author == request.user %}
+            <div class="mt-4">
+              <a class="btn btn-primary" href="{% url 'nucleo:post_update' post.id %}">Editar</a>
+              <a class="btn btn-danger" href="{% url 'nucleo:post_delete' post.id %}">Eliminar</a>
+            </div>
+            {% endif %}
           
           </div>
         </div>
@@ -43,9 +43,9 @@
 
   <!-- List of comments -->
   {% if comments %}
-  <div class="row mt-5">
+  <div class="row mt-5 g-0">
     <div class="col-lg-6 offset-lg-3">
-      Comment{{ comments.count|pluralize }}
+      Comentario{{ comments.count|pluralize }}
       <span class="badge badge-dark ml-2">{{ comments.count }}</span>
     </div>
     {% for comment in comments %}
@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-12">
             <img class="rounded-circle mr-2" src="{% static 'img/avatar.svg' %}" alt="Avatar">
-            <strong>{{ comment.name }}</strong> said
+            <strong>{{ comment.name }}</strong> Autor
           </div>
           <div class="col-12">
             <p class="m-1 mt-3">{{ comment.content }}</p>
@@ -68,9 +68,9 @@
   {% endif %}
 
   <!-- Form to leave comment -->
-  <div class="row mt-5">
+  <div class="comentarios row g-0 mb-5">
     <div class="col-lg-6 offset-lg-3">
-      <h3>Leave a comment</h3>
+      <h3>Dejanos un Comentario &#9997;</h3>
       <form method='POST'>
         {% csrf_token %}
         <div class="form-group">
@@ -81,7 +81,7 @@
         <div class="form-group">
           <span class="ml-2"></span>
           {{ form.email.label_tag }}
-          <span class="text-muted"><small>(Your email address will not be published)</small></span>
+          <span class="text-muted"><small>(Su dirección de correo electrónico no será publicada)</small></span>
           <input type="text" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="id_email"
             name="email" value="{{ form.email.value|default:'' }}">
         </div>
@@ -90,7 +90,7 @@
           <textarea class="form-control {% if form.content.errors %}is-invalid{% endif %}" id="id_content"
             name="content" rows="4">{{ form.content.value|default:'' }}</textarea>
         </div>
-        <button class="btn btn-primary ml-2" type="submit">Reply</button>
+        <button class="boton-com btn btn-primary ml-2 mt-2" type="submit">Enviar</button>
       </form>
     </div>
   </div>

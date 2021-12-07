@@ -127,7 +127,7 @@ body {
 
 .alerta {
   margin-top: 4%;
-  margin-bottom: -1%;
+  margin-bottom: 0%;
 }
 
 
@@ -232,5 +232,24 @@ footer {
 }
 
 
-/* aa */
+/* comentarios estilos */
+
+.comentarios {
+  margin-top: 12%;
+  margin-right: 11%;
+}
+
+/* boton comentarios */
+
+.boton-com {
+  background: #422040;
+  border-color: #422040;
+  color: #fff;
+}
+
+.boton-com:hover {
+  background: #E40066;
+  border-color: #E40066;
+  color: #fff;
+}
 
