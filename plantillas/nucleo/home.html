@@ -30,7 +30,7 @@
       style=" width: 546px; height: 293px;">
       {% endif %}
       <div class="card-body border">
-        <a href="{% url 'core:post' post.id post.slug %}" class="text-decoration-none">
+        <a href="{% url 'nucleo:post' post.id post.slug %}" class="text-decoration-none">
           <h2 class="card-title my-3 text-center texto-central">{{ post.title }} </h2>
         </a>
         <div class="mb-1 text-center">
@@ -47,7 +47,7 @@
         </div>
         <p class="card-text">{{ post.content|safe|truncatewords:30|striptags }}</p>
 
-        <a href="{% url 'core:post' post.id post.slug %}">
+        <a href="{% url 'nucleo:post' post.id post.slug %}">
           <button class="btn btn-dark fw-bold" type="button">Leer Articulo</button>
         </a>
 

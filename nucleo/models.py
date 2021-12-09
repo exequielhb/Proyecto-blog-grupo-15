@@ -8,6 +8,7 @@ from django.db.models.deletion import PROTECT
 
 
 
+
 class Tag(models.Model):
   name = models.CharField(max_length=40)
 
@@ -42,6 +43,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now= True)
 
+    
+
     class Meta:
         ordering = ['-created_on']
 
@@ -49,8 +52,10 @@ class Post(models.Model):
         return self.title
 
 
+
     def get_comments(self):
         return self.comments.filter(parent=None).filter(active=True)
+    
 
 
 # comentarios
