@@ -3,6 +3,10 @@ from django.db import models
 from django.conf import settings
 
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db.models.deletion import PROTECT
+
+
+
 
 class Tag(models.Model):
   name = models.CharField(max_length=40)
@@ -10,12 +14,29 @@ class Tag(models.Model):
   def __str__(self):
       return self.name
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
+
+    options = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
+
+    category = models.ForeignKey(Category, on_delete=PROTECT, default=1)
     title = models.CharField(max_length=200, db_index=True)
+
     slug = models.SlugField(max_length=200, db_index=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.CASCADE)
     #content = models.TextField()
     content = RichTextUploadingField()
+    status = models.CharField(max_length=10, choices=options, default='draft')
     image = models.ImageField(upload_to='', blank=True, null=True)
     tags = models.ManyToManyField(Tag, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -53,3 +74,6 @@ class Comment(models.Model):
 
     def get_comments(self):
         return Comment.objects.filter(parent=self).filter(active=True)
+
+
+

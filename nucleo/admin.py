@@ -1,11 +1,12 @@
 from django.contrib import admin
+from django.db import models
 
 # Esta clase nos permite filtrar contenido en la admin
 
-from .models import Post, Tag, Comment
+from .models import Post, Tag, Comment, Category
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_on', 'updated_on')
+    list_display = ('title', 'status', 'created_on', 'updated_on')
     list_filter = ('tags', 'created_on', 'updated_on')
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)} # Esto crea el enlace que luego se muestra en el navegador
@@ -25,3 +26,5 @@ class CommentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'content')
 
 admin.site.register(Comment, CommentAdmin)
+
+admin.site.register(Category)

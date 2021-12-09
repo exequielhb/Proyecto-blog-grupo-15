@@ -1,10 +1,10 @@
-from django.shortcuts import render
+
 
 from django.views.generic import ListView, DetailView
 
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404
 
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from .forms import CommentForm
 
 
@@ -137,3 +137,24 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         return self.model.objects.filter(author=self.request.user)
 
+
+# Categorias vistas
+
+class CatListView(ListView):
+    template_name = 'category.html'
+    context_object_name = 'catlist'
+
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(category__name=self.kwargs['category']).filter(status='published')
+        }
+        return content
+
+
+def category_list(request):
+    category_list = Category.objects.exclude(name='default')
+    context = {
+        "category_list": category_list,
+    }
+    return context
