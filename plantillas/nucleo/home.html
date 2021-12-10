@@ -5,7 +5,7 @@
 <!-- Portada -->
 <div class="portada position-relative overflow-hidden p-3 p-md-5  text-center text-black">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal texto-central">Texto Central</h1>
+      <h1 class="display-4 fw-normal texto-central animate__animated animate__flipInX">Texto Central</h1>
       <p class="lead fw-normal desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
       <a class="btn btn-success text-withe btn-lg" href="#">Registrarse</a>
     </div>
@@ -26,8 +26,7 @@
     {% for post in object_list %}
     <div class="col-lg-6 mb-4">
       {% if post.image %}
-      <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}"
-      style=" width: 546px; height: 293px;">
+      <img class="card-img-top" src="{{ post.image.url }}" alt="{{ post.title }}">
       {% endif %}
       <div class="card-body border">
         <a href="{% url 'nucleo:post' post.id post.slug %}" class="text-decoration-none">

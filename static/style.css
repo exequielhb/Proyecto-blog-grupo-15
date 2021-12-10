@@ -9,6 +9,28 @@ body {
   
 }
 
+/* navbar color */
+
+.reg {
+  background-color: #11c0a4;
+  border-color: #11c0a4;
+}
+
+.reg:hover {
+  background-color: #11c155;
+  border-color: #11c155;
+}
+
+.ini {
+  background-color: #2d51b1;
+  border-color: #2d51b1;
+}
+
+.ini:hover {
+  background-color: #254f7a;
+  border-color: #254f7a;
+}
+
 /* css usuarios */
 
 
@@ -237,6 +259,7 @@ footer {
 .comentarios {
   margin-top: 12%;
   margin-right: 11%;
+  
 }
 
 /* boton comentarios */
@@ -253,3 +276,12 @@ footer {
   color: #fff;
 }
 
+
+/* categorias estilos */
+/* se fixean las card de la home y categorias */
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}

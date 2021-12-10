@@ -9,14 +9,14 @@
        <div class="album py-5 mt-5 bg-light">
         <div class="container">
           <div class="row">
-        <div class="col-12 pb-5"><h1> Categoria <span class="badge bg-warning text-dark">{{catlist.cat}}</span> </h1></div>
+        <div class="col-12 pb-5"><h1> Categoria <span class="rounded-pill badge bg-warning text-dark">{{catlist.cat}}</span> </h1></div>
         {% for post in catlist.posts %}
             <div class="col-md-4">
             <a class="text-dark text-decoration-none" href="{% url 'nucleo:post' post.id post.slug %}"> 
               <div class="card mb-4 box-shadow">
                 
                 {% if post.image %}
-                <img class="card-img-top" src="{{ post.image.url }}" alt="" style=" width: 355px; height: 200px;">
+                <img class="card-img-top categoria-img" src="{{ post.image.url }}" alt="">
                 {% endif %}
                 <div class="card-body">
                   <h2 style="font-size:18px;font-weight:bold">{{ post.title }}</h2>
