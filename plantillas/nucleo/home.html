@@ -5,9 +5,9 @@
 <!-- Portada -->
 <div class="portada position-relative overflow-hidden p-3 p-md-5  text-center text-black">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal texto-central animate__animated animate__flipInX">Texto Central</h1>
-      <p class="lead fw-normal desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <a class="btn btn-success text-withe btn-lg" href="#">Registrarse</a>
+      <h2 class="display-4 fw-normal texto-central animate__animated animate__flipInX">Objetivos de Desarrollo Sostenible</h2>
+      <p class="lead fw-normal desc">Satisfacer las necesidades del presente sin comprometer la capacidad de las futuras generaciones para satisfacer sus propias necesidades.</p>
+      <a class="btn btn-success conoce-mas text-withe btn-lg" href="#lista-articulos">Conoce Mas</a>
     </div>
   </div>
 
@@ -18,9 +18,8 @@
 
 <div class="container mt-5">
 
-  <h1 class="my-4 text-center lista">Lista de Articulos
-    <small></small>
-  </h1>
+  <h1 class="my-4 lista text-center mt-4" id="lista-articulos">
+    <span class="badge rounded-pill bg-dark ">Lista de Articulos</span></h1>
 
   <div class="row">
     {% for post in object_list %}
