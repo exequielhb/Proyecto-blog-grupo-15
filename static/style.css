@@ -298,16 +298,11 @@ footer {
 
 
 
-
-
-
-
-
 /* Login */
 
 .login-clean {
   background:#f1f7fc;
-  padding:80px 0;
+  padding: 97px 0;
 }
 
 .login-clean form {
@@ -341,23 +336,22 @@ footer {
 }
 
 .login-clean form .btn-primary {
-  background:#f4476b;
-  border:none;
-  border-radius:4px;
-  padding:11px;
-  box-shadow:none;
+  background:#0a58ca;
+  border-color: #0a58ca;
+  color: white;
+ 
   margin-top:26px;
   text-shadow:none;
+  height: 23%;
   outline:none !important;
 }
 
-.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
-  background:#eb3b60;
+.login-clean form .btn-primary:hover {
+  background-color: #254f7a;
+  border-color: #254f7a;
 }
 
-.login-clean form .btn-primary:active {
-  transform:translateY(1px);
-}
+
 
 .login-clean form .forgot {
   display:block;
