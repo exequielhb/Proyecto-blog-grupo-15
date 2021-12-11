@@ -169,9 +169,8 @@ body {
 
 footer {
   margin-top: 13%;
-  padding-top: 7%;
+  padding-top: 4%;
   margin-left: -10.4%;
-  margin-right: -10.4%;
 }
 
 
@@ -366,3 +365,15 @@ footer {
   opacity:1;
   text-decoration:none;
 }
+
+
+/* icono login */
+
+.ion-locked {
+  color: #119DA4;
+}
+
+
+
+/* registro */
+
