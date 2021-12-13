@@ -36,8 +36,8 @@ body {
 
 .header {
   border-radius: 15px;
-  margin-top: 12%;
-  margin: 0% auto;
+  margin-top: 21rem;
+  
   height: 80vh;
   width: 80vh;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -51,6 +51,8 @@ body {
 
 
 }
+
+
 
 .details {
   text-align: center;
@@ -170,7 +172,7 @@ body {
 footer {
   margin-top: 13%;
   padding-top: 4%;
-  margin-left: -10.4%;
+  margin-left: -0.4%;
 }
 
 
@@ -300,8 +302,9 @@ footer {
 /* Login */
 
 .login-clean {
-  background:#f1f7fc;
-  padding: 97px 0;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  padding: 101.5px 0;
 }
 
 .login-clean form {
@@ -466,3 +469,16 @@ footer {
   text-decoration:none;
 }
 
+/* crear post */
+
+.btn-primary {
+  color: white;
+  background-color: #7952b3;
+  border-color: #7952b3;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #9066cf;
+  border-color: #9066cf;
+}

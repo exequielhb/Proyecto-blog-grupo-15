@@ -5,8 +5,8 @@
 
 {% block content %}
 <body class="perfil">
-    <section class="profile">
-        <header class="header">
+    <section class="profile position-relative">
+        <header class="header position-absolute top-0 start-50 translate-middle">
           <div class="details">
             {% if user.profile.image %}
             <img src="{{ profile.image.url }}" alt="{{ user.username }}" class="profile-pic">
@@ -14,13 +14,14 @@
             <img src="{% static 'img/avatar.svg' %}" alt="{{ user.username }}" class="profile-pic">
             {% endif %}
             
-            <p><a href="{% url 'users:edit_profile' %}">Edita tu perfil</a></p>
-            <h1 class="heading">@{{ user.username }}</h1>
+            <p><a href="{% url 'users:edit_profile' %}" class="link-light fw-bold fs-6 text-decoration-none">Edita tu perfil</a></p>
+            <h1 class="heading fw-bold link-light">@{{ user.username }}</h1>
             <div class="location">
-                <p> <strong>Ultima vez:</strong> {{ user.last_login }}</p>
+                <p><strong class="link-light">Ultima Conexion:</strong> <span class="link-light">{{ user.last_login }}</span></p>
             </div>
             <div class="stats">
-                <p class="card-text"> Sobre mi: {{ user.profile.about_me }}</p>
+                <p class="card-text link-light fw-bold"> Sobre mi:</p>
+                <span class="link-light">{{ user.profile.about_me }}</span>
             </div>
           </div>
         </header>
