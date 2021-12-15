@@ -469,16 +469,3 @@ footer {
   text-decoration:none;
 }
 
-/* crear post */
-
-.btn-primary {
-  color: white;
-  background-color: #7952b3;
-  border-color: #7952b3;
-}
-
-.btn-primary:hover {
-  color: white;
-  background-color: #9066cf;
-  border-color: #9066cf;
-}
