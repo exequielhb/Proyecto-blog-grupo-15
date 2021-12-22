@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block head_title %}{% if update %}Update post{% else %}Create a post{% endif %}{% endblock head_title %}
+{% block head_title %}{% if update %}Actualizar Post{% else %}Crea un Post{% endif %}{% endblock head_title %}
 
 {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <h2 class="my-5 pt-4 mb-4">{% if update %}Update post{% else %}Crea un Post{% endif %}</h2>
+      <h2 class="my-5 pt-4 mb-4">{% if update %}Actualizar Post{% else %}Crea un Post{% endif %}</h2>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -50,7 +50,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary mb-2 fw-bold">
-          {% if update %}Update the post{% else %}Crear Post{% endif %}
+          {% if update %}Actualizar Post{% else %}Crear Post{% endif %}
         </button>
       </form>
 
